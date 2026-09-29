@@ -272,7 +272,34 @@ a {
   text-decoration: none;
 }
 
+/* TABLET */
+@media (max-width: 900px) {
+
+  .navbar {
+    padding: 15px 25px;
+  }
+
+  .nav-links {
+    gap: 18px;
+  }
+
+  .dashboard-layout {
+    gap: 30px;
+  }
+
+  .dashboard-image img {
+    max-width: 400px;
+  }
+
+  .card {
+    width: 220px;
+  }
+}
+
+
+/* MOBILE */
 @media (max-width: 768px) {
+
   .navbar {
     flex-direction: column;
     padding: 15px 20px;
@@ -281,26 +308,43 @@ a {
 
   .ibm-logo {
     width: 65px;
+    height: auto;
   }
 
   .nav-links {
+    width: 100%;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 12px 20px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
   }
 
   .container {
-    width: 95%;
+    width: 92%;
     margin: 25px auto;
   }
 
   .dashboard-layout {
     flex-direction: column;
-    gap: 30px;
+    min-height: auto;
+    gap: 35px;
+  }
+
+  .dashboard-left {
+    width: 100%;
+  }
+
+  .dashboard-left h1 {
+    font-size: 28px;
   }
 
   .dashboard {
     flex-direction: column;
+    width: 100%;
   }
 
   .card {
@@ -309,6 +353,7 @@ a {
 
   .dashboard-buttons {
     flex-direction: column;
+    width: 100%;
   }
 
   .dashboard-buttons a {
@@ -319,18 +364,106 @@ a {
     width: 100%;
   }
 
-.dashboard-image img {
-  width: 800px;
-  max-width: none;
-  height: auto;
-}
+  .dashboard-image {
+    width: 100%;
+  }
+
+  .dashboard-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
 
   .form-section {
+    width: 100%;
     padding: 20px;
+    margin: 10px auto;
+  }
+
+  input,
+  select {
+    font-size: 16px;
   }
 
   .search {
+    width: 100%;
     max-width: 100%;
+  }
+
+  .visitor-section {
+    width: 100%;
+    padding: 15px;
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 900px;
+  }
+
+  th,
+  td {
+    padding: 10px;
+    font-size: 14px;
+    white-space: nowrap;
   }
 }
 
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+
+  .navbar {
+    padding: 12px;
+  }
+
+  .ibm-logo {
+    width: 55px;
+  }
+
+  .nav-links {
+    gap: 10px 15px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+  }
+
+  .container {
+    width: 94%;
+    margin: 20px auto;
+  }
+
+  .dashboard-left h1 {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .card h2 {
+    font-size: 30px;
+  }
+
+  .dashboard-image img {
+    max-width: 320px;
+  }
+
+  .form-section {
+    padding: 18px;
+  }
+
+  .form-section h2,
+  .visitor-section h2 {
+    font-size: 22px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+ 
