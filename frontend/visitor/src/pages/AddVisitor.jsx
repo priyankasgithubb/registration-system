@@ -1,0 +1,122 @@
+import { useState } from "react";
+
+function AddVisitor() {
+  const [form, setForm] = useState({
+    name: "",
+    mobile: "",
+    email: "",
+    company: "",
+    personToMeet: "",
+    purpose: "",
+    status: "Checked In",
+  });
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const addVisitor = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:5000/api/visitors", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (response.ok) {
+        alert("Visitor added successfully");
+
+        setForm({
+          name: "",
+          mobile: "",
+          email: "",
+          company: "",
+          personToMeet: "",
+          purpose: "",
+          status: "Checked In",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <div className="container">
+      <div className="form-section">
+        <h2>Add New Visitor</h2>
+
+        <form onSubmit={addVisitor}>
+          <input
+            name="name"
+            placeholder="Visitor Name"
+            value={form.name}
+            onChange={handleChange}
+            required
+          />
+
+          <input
+            name="mobile"
+            placeholder="Mobile Number"
+            value={form.mobile}
+            onChange={handleChange}
+            required
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            value={form.email}
+            onChange={handleChange}
+            required
+          />
+
+          <input
+            name="company"
+            placeholder="Company / College Name"
+            value={form.company}
+            onChange={handleChange}
+            required
+          />
+
+          <input
+            name="personToMeet"
+            placeholder="Person to Meet"
+            value={form.personToMeet}
+            onChange={handleChange}
+            required
+          />
+
+          <input
+            name="purpose"
+            placeholder="Purpose of Visit"
+            value={form.purpose}
+            onChange={handleChange}
+            required
+          />
+
+          <select
+            name="status"
+            value={form.status}
+            onChange={handleChange}
+          >
+            <option value="Checked In">Checked In</option>
+            <option value="Checked Out">Checked Out</option>
+          </select>
+
+          <button type="submit">Add Visitor</button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+export default AddVisitor;
